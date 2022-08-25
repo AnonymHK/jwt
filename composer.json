@@ -1,5 +1,5 @@
 {
-    "name": "phalapi/jwt",
+    "name": "anonymhk/jwt",
     "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
     "type": "library",
     "license": "GPL-3.0-or-later",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Phalapi\\JWT\\": "src"
+            "AnonymHK\\JWT\\": "src"
         }
     }
 }

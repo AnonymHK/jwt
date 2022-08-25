@@ -9,7 +9,6 @@ return array(
      * 扩展类库 - JWT扩展
      */
 	'jwt' => array(
-		'iss' => 'phalapi.net',
 		'key' => 'secret'
 	),
 );

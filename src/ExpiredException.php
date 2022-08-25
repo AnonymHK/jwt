@@ -1,5 +1,5 @@
 <?php
-namespace Phalapi\JWT;
+namespace AnonymHK\JWT;
 
 class ExpiredException extends \UnexpectedValueException
 {

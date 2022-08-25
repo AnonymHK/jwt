@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalapi\JWT;
+namespace AnonymHK\JWT;
 use \DomainException;
 use \InvalidArgumentException;
 use \UnexpectedValueException;
