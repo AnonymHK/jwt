@@ -18,9 +18,9 @@ class Install
      */
     public static function install()
     {
-        $config_app_path = __DIR__ . '/config/plugin/anonymhk/jwt/app.php';
+        $config_app_path = __DIR__ . '/../config/plugin/anonymhk/jwt/app.php';
         $config_app_content = file_get_contents($config_app_path);
-        $app_secret = md5($app_key.rand(0, 2100000000));
+        $app_secret = md5(microtime(true).rand(0, 2100000000));
         $config_app_content = str_replace([
             'APP_SECRET_TO_REPLACE'
         ], [$app_secret], $config_app_content);
