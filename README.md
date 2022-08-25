@@ -25,10 +25,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
     /**
      * 扩展类库 - JWT扩展
      */
-	'jwt' => array(
-		'key' => 'secret'
-	),
-
+	'key' => 'secret',
 ```
 
 ## 入门使用
@@ -41,9 +38,13 @@ $jwt = new \AnonymHK\JWT\Lite(config('app.jwt.key'));
 常用基础操作(具体API可以查阅代码中src/Lite.php)
 
 ```
+
+```
 // 生成JWT
 $jwt->encodeJwt($payload);
+
 // 从header中获取AUTHORIZATION验证
+
 $jwt->decodeJwt();
 // 传入JWT验证
 $jwt->decodeJwtByParam($token);
