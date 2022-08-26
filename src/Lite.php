@@ -18,8 +18,8 @@ class Lite extends JWT
     /**
      * 生成JWT
      */
-	public function encodeJwt($payload, $alg='HS256',$keyID=null,$head=null) {
-		$key = config('plugin.anonymhk.jwt.app.key');
+	public function encodeJwt($payload, $key = '', $alg='HS256',$keyID=null,$head=null) {
+		$key = empty($key) ? config('app.jwt.key') : $key;
 		try{
 			return JWT::encode($payload,$key,$alg,$keyID,$head);
 		}catch(\Exception $e){
@@ -31,9 +31,8 @@ class Lite extends JWT
     /**
      * 从header中获取AUTHORIZATION验证
      */
-	public function decodeJwt() {
-		$key = config('plugin.anonymhk.jwt.app.key');
-		$rs = array();
+	public function decodeJwt($key = '') {
+		$key = empty($key) ? config('app.jwt.key') : $key;
 		$jwt = '';
 		if(isset($_SERVER['HTTP_AUTHORIZATION']) && !empty($_SERVER['HTTP_AUTHORIZATION'])){
 			$jwt = $_SERVER['HTTP_AUTHORIZATION'];
@@ -52,8 +51,8 @@ class Lite extends JWT
 	/**
      * 传入JWT验证
      */
-	public function decodeJwtByParam($token){
-		$key = config('plugin.anonymhk.jwt.app.key');
+	public function decodeJwtByParam($token, $key = ''){
+		$key = empty($key) ? config('app.jwt.key') : $key;
         try {
             $payload = JWT::decode($token, $key, self::$allowed_algs);
             return (array)$payload;
